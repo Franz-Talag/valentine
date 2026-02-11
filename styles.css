@@ -1,0 +1,189 @@
+/* Base styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #CBE6EF;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.header_text {
+    font-family: "Shrikhand", serif;
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 400;
+    color: #fffbf0;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background-color: #80c3d8;
+    color: white;
+    padding: clamp(12px, 3vw, 18px) clamp(24px, 5vw, 36px);
+    text-align: center;
+    display: inline-block;
+    font-size: clamp(16px, 4vw, 20px);
+    font-family: "Shrikhand", serif;
+    margin: 8px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    min-width: 120px;
+    min-height: 50px;
+    touch-action: manipulation;
+}
+
+.btn:hover {
+    background-color: #b4dbdc;
+    transform: translateY(-2px);
+}
+
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    width: 100%;
+}
+
+.gif_container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #777;
+    font-size: clamp(12px, 3vw, 14px);
+    padding: 0 10px;
+    width: 100%;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 25px;
+    }
+    
+    .btn {
+        width: 80%;
+        max-width: 250px;
+        margin: 5px 0;
+    }
+    
+    .gif_container img {
+        max-height: 250px;
+    }
+    
+    .footer {
+        bottom: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header_text {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+        margin-bottom: 15px;
+    }
+    
+    .buttons {
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .btn {
+        width: 90%;
+        padding: 14px 20px;
+        font-size: 18px;
+    }
+    
+    .gif_container img {
+        max-height: 200px;
+    }
+    
+    .footer {
+        font-size: 12px;
+        bottom: 3px;
+    }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+    .header_text {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        min-width: 100px;
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+}
+
+/* Prevent text selection on buttons for better mobile experience */
+.btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Improve tap targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .btn {
+        min-height: 44px; /* Minimum touch target size recommended by Apple */
+    }
+    
+    .btn:hover {
+        background-color: #80c3d8; /* Disable hover effect on touch devices */
+    }
+    
+    .btn:active {
+        background-color: #b4dbdc;
+        transform: scale(0.98);
+    }
+}
